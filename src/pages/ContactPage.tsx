@@ -56,8 +56,8 @@ const ContactPage: React.FC = () => {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-lg font-medium text-gray-900">Phone</h3>
-                  <p className="text-gray-600">+91 98765 43210</p>
-                  <p className="text-gray-600">Mon-Fri, 9:00 AM - 6:00 PM IST</p>
+                  <p className="text-gray-600">+1-957-227-0731</p>
+                  <p className="text-gray-600">Mon-Fri, 9:00 AM - 6:00 PM EST</p>
                 </div>
               </div>
               
@@ -80,9 +80,9 @@ const ContactPage: React.FC = () => {
                   <h3 className="text-lg font-medium text-gray-900">Address</h3>
                   <p className="text-gray-600">
                     RoboShop Headquarters<br />
-                    123 Tech Park, Sector 5<br />
-                    Bengaluru, Karnataka 560001<br />
-                    India
+                    5396 Tech Park, North Reese Avenue<br />
+                    Fresno California 93722<br />
+                    USA
                   </p>
                 </div>
               </div>

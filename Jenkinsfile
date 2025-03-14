@@ -43,16 +43,28 @@ pipeline{
                 }
             }
         }
-		stage('Deploy to container') {
-            steps {
-                script {
-                    // Stop and remove the existing container if it exists
-                        sh '''
-                            docker ps -a --filter "name=roboapp" --format "{{.ID}}" | xargs -r docker stop
-                            docker ps -a --filter "name=roboapp" --format "{{.ID}}" | xargs -r docker rm
-                            docker run -d --name roboapp -p 80:80 aakash3902/roboshop:latest
-                        '''
+		// stage('Deploy to container') {
+        //     steps {
+        //         script {
+        //             // Stop and remove the existing container if it exists
+        //                 sh '''
+        //                     docker ps -a --filter "name=roboapp" --format "{{.ID}}" | xargs -r docker stop
+        //                     docker ps -a --filter "name=roboapp" --format "{{.ID}}" | xargs -r docker rm
+        //                     docker run -d --name roboapp -p 80:80 aakash3902/roboshop:latest
+        //                 '''
+        //             }
+        //     }
+        // }
+        stage('Deploy to kubernets'){
+            steps{
+                script{
+                    dir('K8S') {
+                        withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
+                                sh 'kubectl apply -f deployment.yml'
+                                sh 'kubectl apply -f service.yml'
+                        }   
                     }
+                }
             }
         }
 

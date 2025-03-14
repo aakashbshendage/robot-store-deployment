@@ -18,6 +18,6 @@ sudo mv /tmp/eksctl /usr/local/bin
 eksctl version
 
 # Setup EKS Cluster
-eksctl create cluster --name three-tier-cluster --region us-east-1 --node-type t2.medium --nodes-min 2 --nodes-max 2
+eksctl create cluster --name three-tier-cluster --region us-east-1 --node-type t2.medium --nodes-min 1 --nodes-max 2
 aws eks update-kubeconfig --region us-east-1 --name three-tier-cluster
 kubectl get nodes

@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "assume_role" {
 }
 
 resource "aws_iam_role" "example" {
-  name               = "eks-cluster-cloud"
+  name               = "eks-cluster-cloud-1"
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
 }
 
@@ -36,7 +36,7 @@ data "aws_subnets" "public" {
 resource "aws_eks_cluster" "example" {
   name     = "EKS_CLOUD"
   role_arn = aws_iam_role.example.arn
-
+  
   vpc_config {
     subnet_ids = data.aws_subnets.public.ids
   }
@@ -49,7 +49,7 @@ resource "aws_eks_cluster" "example" {
 }
 
 resource "aws_iam_role" "example1" {
-  name = "eks-node-group-cloud"
+  name = "eks-node-group-cloud-1"
 
   assume_role_policy = jsonencode({
     Statement = [{

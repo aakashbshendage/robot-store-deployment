@@ -55,8 +55,6 @@ pipeline{
         //             }
         //     }
         // }
-
-        // K8s deployment
         stage('Deploy to kubernets'){
             steps{
                 script{

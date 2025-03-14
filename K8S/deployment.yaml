@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: roboshop
+spec:
+  replicas: 1  # Number of desired replicas
+  selector:
+    matchLabels:
+      app: roboshop
+  template:
+    metadata:
+      labels:
+        app: roboshop
+    spec:
+      containers:
+      - name: roboshop
+        image: aakash3902/roboshop:latest
+        ports:
+        - containerPort: 80

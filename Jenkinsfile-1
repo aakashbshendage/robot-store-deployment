@@ -3,7 +3,7 @@ pipeline{
     stages {
         stage('Checkout from Git'){
             steps{
-                git branch: 'main', url: 'https://github.com/aakashbshendage/robot-store-deployment.git'
+                git branch: 'dev', url: 'https://github.com/aakashbshendage/robot-store-deployment.git'
             }
         }
         stage('Terraform version'){

@@ -43,7 +43,7 @@ pipeline{
                 }
             }
         }
-	    stage('Deploy to container') {
+		stage('Deploy to container') {
             steps {
                 script {
                     // Stop and remove the existing container if it exists

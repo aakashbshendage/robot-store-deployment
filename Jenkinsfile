@@ -46,7 +46,7 @@ pipeline{
 		stage('Deploy to container') {
             steps {
                 script {
-                    // Stop and remove the existing container if it exists
+        //            // Stop and remove the existing container if it exists
                         sh '''
                             docker ps -a --filter "name=roboapp" --format "{{.ID}}" | xargs -r docker stop
                             docker ps -a --filter "name=roboapp" --format "{{.ID}}" | xargs -r docker rm

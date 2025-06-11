@@ -55,7 +55,6 @@ pipeline{
                    }
            }
         }
-        //
         // stage('Deploy to kubernets'){
         //     steps{
         //         script{

@@ -17,5 +17,13 @@ pipeline{
                 git branch: 'dev', url: 'https://github.com/aakashbshendage/robot-store-deployment.git'
             }
         }
+        stage("Sonarqube Analysis "){
+           steps{
+               withSonarQubeEnv('sonar-server') {
+                   sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Roboshop \
+                   -Dsonar.projectKey=Roboshop '''
+               }
+           }
+        }
     }
 }

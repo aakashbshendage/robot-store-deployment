@@ -25,5 +25,23 @@ pipeline{
                }
            }
         }
+        // stage("quality gate"){
+        //    steps {
+        //         script {
+        //             waitForQualityGate abortPipeline: false, credentialsId: 'sonar-server' 
+        //         }
+        //     } 
+        // }
+        stage("Docker Build & Push"){
+           steps{
+               script{
+                  withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){   
+                      sh "docker build -t roboshop ."
+                      sh "docker tag roboshop aakash3902/roboshop:latest "
+                      sh "docker push aakash3902/roboshop:latest "
+                   }
+               }
+           }
+        }
     }
 }
